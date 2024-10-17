@@ -1,6 +1,6 @@
 
 // Printing array with loop
-/*
+
 #include <stdio.h>  
 int main() {
     // Declare and initialize an array of double values (prices)
@@ -16,11 +16,11 @@ int main() {
     }
     return 0;  
 }
-*/
+
 /*------------------------------------------------------------------------------------------------------------------*/
 // 2D arrays
 
-/*
+
 #include <stdio.h>
 int main()
 {
@@ -48,10 +48,10 @@ int main()
    }
    return 0;
 }
-*/
+
 /*------------------------------------------------------------------------------------------*/
 //array of string
-/*
+
 #include <stdio.h>
 #include <string.h>
 int main()
@@ -71,43 +71,6 @@ int main()
    }
    return 0;
 }
- */
+ 
 /*-----------------------------------------------------------------------------------------------*/
-//sorting an array
-#include<stdio.h>
-
-void sort(int array[], int size)
-{
-   for (int i = 0; i < size - 1; i++)
-   {
-      for (int j = 0; j < size - i - 1; j++)
-      {
-         if (array[j] > array[j + 1])
-         {
-            int temp = array[j];
-            array[j] = array[j + 1];
-            array[j + 1] = temp;
-         }
-      }
-   }
-}
-
-void printArray(int array[], int size)
-{
-   for (int i = 0; i < size; i++)
-   {
-     printf("%d ", array[i]);
-   }
-   printf("\n"); // Add a newline for better formatting
-}
-int main()
-{
-   int array[] = {9, 3, 6, 34, 12, 76, 16, 55};
-   int size = sizeof(array) / sizeof(array[0]);
-   printf("Number of elements in the array: %d\n", size);
-   sort(array, size);
-   printf("Sorted array: ");
-   printArray(array, size);
-   return 0;
-}
 
