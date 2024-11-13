@@ -153,3 +153,34 @@ int main() {
     return 0;
 }
 */
+//sorting in decending order
+#include <stdio.h>
+int main(){
+    int n;
+    scanf("%d",&n);
+    int a[n];
+    //Input the elements
+    for(int i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    //Sorting using bubble sort
+    for(int i=0;i<n-1;i++){
+        for(int j=0;j<n-i-1;j++){
+            if(a[j]<a[j+1]){
+                int temp = a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        printf("%d ",a[i]);
+    }
+    // The largest element is the first element in the sorted array
+    int largest = a[0];
+    // The second largest element is the second element in the sorted array
+    int secondLargest = a[1];
+    printf("Largest element: %d\n", largest);
+    printf("Second largest element: %d\n", secondLargest);
+    printf("\n");
+}
