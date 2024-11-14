@@ -36,7 +36,7 @@ int main() {
     return 0;
 }
 */
-
+/*--------------------------------------------------------------------------------------------------------------------------------*/
 /*
 //Removing duplcates without sorting
 #include <stdio.h>
@@ -71,7 +71,7 @@ int main() {
     return 0;
 }
 */
-
+/*------------------------------------------------------------------------------------------------------------------------------*/
 /*
 // Print the sum, count of even & odd Numbers in an Array
 #include <stdio.h>
@@ -100,8 +100,7 @@ int main() {
     return 0;
 }
 */
-
-
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
 /*
 //replace all odd elements by 1 in one dimensional array
 
@@ -128,7 +127,7 @@ int main() {
     return 0;
 }
 */
-
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*
 //finding the missing elements
 
@@ -153,6 +152,8 @@ int main() {
     return 0;
 }
 */
+/*-----------------------------------------------------------------------------------------------------------------------------*/
+/*
 //sorting in decending order
 #include <stdio.h>
 int main(){
@@ -183,4 +184,117 @@ int main(){
     printf("Largest element: %d\n", largest);
     printf("Second largest element: %d\n", secondLargest);
     printf("\n");
+}
+*/
+/*------------------------------------------------------------------------------------------------------------------------------------------*/
+/*
+//finding the largest and second largest
+#include <stdio.h>
+void bubbleSort(int arr[], int n) {
+    int temp;
+    // Bubble Sort: Repeat the process for n-1 times
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - 1 - i; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // Swap the elements
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+int main() {
+    int n;
+    scanf("%d", &n);  // Input the size of the array
+    int arr[n];  // Declare array with size n
+    // Input the array elements
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);  // Correct: Store each element in arr[i]
+    }
+    int largest, secondLargest;
+    // Sort the array in ascending order
+    bubbleSort(arr, n);
+    // The largest element is at the last index
+    largest = arr[n - 1];
+    // The second largest element is at the second last index
+    secondLargest = arr[n - 2];
+    printf("Largest element: %d\n", largest);
+    printf("Second Largest element: %d\n", secondLargest);
+    printf("%d",arr[0]);
+    return 0;
+}
+*/
+/*------------------------------------------------------------------------------------------------------------------------------------------*/
+//smallest in the given array
+/*
+#include <stdio.h>
+int main()
+{
+    int arr[] = {12,1234,45,67,1};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int smallest = arr[0];
+    for(int i =0;i<n;i++){
+        if(arr[i]<smallest)
+        smallest = arr[i];
+    }
+    printf("%d",smallest);
+}
+*/
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*
+//Replace All Even Elements by 'E'
+
+#include <stdio.h>
+int main() {
+    int n;
+    // Input the size of the array
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+    int arr[n];
+    // Input the array elements
+    printf("Enter %d elements: ", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    // Replace even elements with 'E'
+    printf("Modified array: ");
+    for (int i = 0; i < n; i++) {
+        if (arr[i] % 2 == 0) {
+            printf("E "); // Print 'E' for even numbers
+        } else {
+            printf("%d ", arr[i]); // Print the element if it's odd
+        }
+    }
+    return 0;
+}
+*/
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+int main() {
+    int arr[] = {10,20,30,40,1};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    // Initialize smallest and second smallest with large values
+    int smallest = __INT_MAX__;
+    int secondSmallest = __INT_MAX__;
+    // Iterate through the array to find the smallest and second smallest
+    for (int i = 0; i < n; i++) {
+        if (arr[i] < smallest) {
+            // If current element is smaller than smallest
+            secondSmallest = smallest;
+            smallest = arr[i];
+        } else if (arr[i] < secondSmallest && arr[i] != smallest) {
+            // If current element is greater than smallest and less than secondSmallest
+            secondSmallest = arr[i];
+        }
+    }
+    // Check if we have found valid second smallest
+    if (secondSmallest == __INT_MAX__) {
+        printf("There is no valid second smallest element.\n");
+    } else {
+        printf("Smallest element: %d\n", smallest);
+        printf("Second smallest element: %d\n", secondSmallest);
+    }
+    return 0;
 }
