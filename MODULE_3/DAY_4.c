@@ -36,7 +36,7 @@ int main() {
     return 0;
 }
 */
-/*--------------------------------------------------------------------------------------------------------------------------------*/
+
 /*
 //Removing duplcates without sorting
 #include <stdio.h>
@@ -71,7 +71,7 @@ int main() {
     return 0;
 }
 */
-/*------------------------------------------------------------------------------------------------------------------------------*/
+
 /*
 // Print the sum, count of even & odd Numbers in an Array
 #include <stdio.h>
@@ -100,7 +100,8 @@ int main() {
     return 0;
 }
 */
-/*---------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
 /*
 //replace all odd elements by 1 in one dimensional array
 
@@ -127,7 +128,7 @@ int main() {
     return 0;
 }
 */
-/*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 /*
 //finding the missing elements
 
@@ -152,7 +153,6 @@ int main() {
     return 0;
 }
 */
-/*-----------------------------------------------------------------------------------------------------------------------------*/
 /*
 //sorting in decending order
 #include <stdio.h>
@@ -186,7 +186,130 @@ int main(){
     printf("\n");
 }
 */
-/*------------------------------------------------------------------------------------------------------------------------------------------*/
+/*
+//adding element at the end of the array
+
+#include <stdio.h>
+int main() {
+    int array[100], n, element;
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+    printf("Enter %d elements: ", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &array[i]);
+    }
+    printf("Enter the element to insert at the end: ");
+    scanf("%d", &element);
+    array[n] = element; // Insert the element at the end
+    n++; // Increase the array size
+    printf("Array after insertion: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", array[i]);
+    }
+    return 0;
+}
+*/
+/*
+//adding elements at any position
+
+#include <stdio.h>
+int main() {
+    int arr[100] = {0}; // Array with a maximum size of 100
+    int i, element, position, n = 10; // Initial array size is 10
+    // Fill the array with numbers from 1 to 10
+    for (i = 0; i < 10; i++) {
+        arr[i] = i + 1;
+    }
+    // Print the original array
+    printf("Original array: ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    // Element to be inserted
+    element = 50;
+    // Position where the element is to be inserted
+    position = 5; // Note: position is 1-based
+    // Increase the size of the array by 1
+    n++;
+    // Shift elements to the right to make space for the new element
+    for (i = n - 1; i >= position; i--) {
+        arr[i] = arr[i - 1];
+    }
+    // Insert the element at the specified position
+    arr[position - 1] = element; // Convert 1-based to 0-based index
+    // Print the updated array
+    printf("Updated array: ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
+}
+*/
+
+/*
+//sum of unique elements
+#include <stdio.h>
+int main() {
+    int arr[100], n, sum = 0;
+    int isUnique;
+    // Input the number of elements
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+    // Input the elements of the array
+    printf("Enter %d elements: ", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    // Calculate the sum of unique elements
+    for (int i = 0; i < n; i++) {
+        isUnique = 1; // Assume the element is unique
+        // Check if the current element appears elsewhere in the array
+        for (int j = 0; j < n; j++) {
+            if (i != j && arr[i] == arr[j]) {
+                isUnique = 0; // Element is not unique
+                break;
+            }
+        }
+        // Add the element to sum if it is unique
+        if (isUnique) {
+            sum += arr[i];
+        }
+    }
+    // Output the sum of unique elements
+    printf("Sum of all unique elements: %d\n", sum);
+    return 0;
+}
+*/
+
+/*
+//sorting in acsending order
+#include <stdio.h>
+int main() {
+    int arr[] = {2,0,1,0,2,1,0,1,0,1,0,1}; // Example array
+    int n = sizeof(arr) / sizeof(arr[0]); // Calculate the number of elements in the array
+    int temp;
+    // Bubble Sort: Repeat the process for n-1 times
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - 1 - i; j++) {
+            // If the current element is greater than the next element, swap them
+            if (arr[j] > arr[j + 1]) {
+                // Swap elements
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    // Print the sorted array
+    printf("Sorted array in ascending order: \n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
+*/
 /*
 //finding the largest and second largest
 #include <stdio.h>
@@ -225,7 +348,7 @@ int main() {
     return 0;
 }
 */
-/*------------------------------------------------------------------------------------------------------------------------------------------*/
+
 //smallest in the given array
 /*
 #include <stdio.h>
@@ -241,7 +364,8 @@ int main()
     printf("%d",smallest);
 }
 */
-/*-----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
 /*
 //Replace All Even Elements by 'E'
 
@@ -269,7 +393,7 @@ int main() {
     return 0;
 }
 */
-/*----------------------------------------------------------------------------------------------------------------------------------------------*/
+
 
 #include <stdio.h>
 int main() {
