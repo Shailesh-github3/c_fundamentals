@@ -1,26 +1,30 @@
 /*
 //To find the frequecy of the string
 #include <stdio.h>
-#include <string.h>
 int main() {
     char s[1000];
-    int i, j, k, count = 0, n;
-    printf("Enter the string: ");
-    fgets(s, sizeof(s), stdin); // Use fgets() to safely take input
-    for (j = 0; s[j]; j++);
-    n = j - 1; // Adjust n to exclude the newline character from fgets
-    printf("Frequency count of characters in string:\n");
-    for (i = 0; i < n; i++) {
-        count = 1;
-        if (s[i] != '\0') {
-            for (j = i + 1; j < n; j++) {
-                if (s[i] == s[j]) {
-                    count++;
-                    s[j] = '\0'; // Mark character as counted
-                }
-            }
-            printf("'%c' = %d\n", s[i], count);
+    int i, j, count;
+    // Step 1: Get the input from the user
+    printf("Enter a string: ");
+    fgets(s, sizeof(s), stdin); // Reads the string from the user
+    // Step 2: Display the character frequencies
+    printf("Frequency of each character:\n");
+    // Go through each character in the string
+    for (i = 0; s[i] != '\0'; i++) {
+        // Skip counting spaces or characters we have already counted
+        if (s[i] == ' ' || s[i] == '\n' || s[i] == '\0') {
+            continue;
         }
+        count = 1; // Start counting from 1 for the current character
+        // Count how many times this character appears in the rest of the string
+        for (j = i + 1; s[j] != '\0'; j++) {
+            if (s[i] == s[j]) {
+                count++;
+                s[j] = ' '; // Mark this character as counted by setting it to a space
+            }
+        }
+        // Print the character and how many times it appears
+        printf("'%c' = %d\n", s[i], count);
     }
     return 0;
 }
@@ -93,7 +97,7 @@ int main() {
 */
 
 /*
-//reverse a string with build in functions
+//reverse a string without build in functions
 #include <stdio.h>
 #include <string.h>
 int main() {
@@ -116,4 +120,44 @@ int main() {
     return 0;
 }
 */
+/*//count the number of words
+#include <stdio.h>
+int main() {
+    char str[1000];
+    int i, wordCount = 0;
+    int inWord = 0; // This variable tells us if we're currently inside a word
+    // Get input from the user
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    // Loop through each character in the string
+    for (i = 0; str[i] != '\0'; i++) {
+        // If the current character is a space, newline, or tab
+        if (str[i] == ' ' || str[i] == '\n' || str[i] == '\t') {
+            inWord = 0; // We're no longer inside a word
+        } 
+        // If the current character is not a space, newline, or tab
+        // and we are not already inside a word
+        else if (inWord == 0) {      //if no word is found then only it start's to count 
+            inWord = 1; // Now we are inside a word
+            wordCount++; // Increase the word count
+        }
+    }
+    // Output the result
+    printf("Total number of words: %d\n", wordCount);
 
+    return 0;
+}*/
+//split the words in the srings
+#include <stdio.h>
+#include<string.h>
+int main()
+{
+    char str[100]="Welcome to saveetha EngineerinCollege College";
+    char *word;
+    printf("Strings or words after split by space are :\n");
+    word = strtok(str, " ");
+    while(word != NULL){
+        printf(" %s\n", word);
+        word = strtok(NULL, " ");
+    }
+}
