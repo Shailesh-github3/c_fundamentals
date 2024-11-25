@@ -141,3 +141,45 @@ int main() {
     return 0;
 }
 */
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[200], words[50][50];
+    int i, j, k, wordCount = 0, isDuplicate;
+
+    // Input the string
+    printf("Enter a string: ");
+    fgets(str, 200, stdin);
+    str[strcspn(str, "\n")] = '\0';  // Remove trailing newline
+
+    // Split the string into words
+    char *token = strtok(str, " ");
+    while (token != NULL) {
+        strcpy(words[wordCount], token);  // Copy the word into array
+        wordCount++;
+        token = strtok(NULL, " ");
+    }
+
+    // Remove duplicate words
+    for (i = 0; i < wordCount; i++) {
+        for (j = i + 1; j < wordCount; j++) {
+            if (strcmp(words[i], words[j]) == 0) {  // Check for duplicate
+                // Shift all words one position up
+                for (k = j; k < wordCount - 1; k++) {
+                    strcpy(words[k], words[k + 1]);
+                }
+                wordCount--;  // Reduce word count
+                j--;          // Check the new word at position j
+            }
+        }
+    }
+
+    // Print the result
+    printf("String after removing duplicate words: ");
+    for (i = 0; i < wordCount; i++) {
+        printf("%s ", words[i]);
+    }
+
+    return 0;
+}
