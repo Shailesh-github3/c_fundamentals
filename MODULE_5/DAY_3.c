@@ -321,3 +321,65 @@ int main() {
     }
     return 0;
 }*/
+//write a program to find 445544 number is palindrome or not using recursion?
+
+#include <stdio.h>
+int reverse(int num, int rev) {
+    if (num == 0) {
+        return rev;
+    }
+    return reverse(num / 10, rev * 10 + num % 10);
+}
+int isPalindrome(int num) {
+    int rev = reverse(num, 0);
+    return num == rev;
+}
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    if (isPalindrome(num)) {
+        printf("%d is a palindrome number.\n", num);
+    } else {
+        printf("%d is not a palindrome number.\n", num);
+    }
+    return 0;
+}
+//write a c program to find factorial of the number  '4' using pointer:
+#include <stdio.h>
+
+// Function to calculate factorial using pointer
+void factorial(int *num, int *result) {
+    *result = 1; // Initialize result to 1
+    for (int i = 1; i <= *num; i++) {
+        *result *= i; // Multiply result by each number up to 'num'
+    }
+}
+
+int main() {
+    int number = 5; // Number to find the factorial of
+    int result; // To store the result
+
+    factorial(&number, &result); // Pass the address of number and result to the function
+
+    printf("Factorial of %d is %d\n", number, result); // Print the result
+
+    return 0;
+}
+
+//Write a C program to calculate the Product of first 12 natural numbers using Recursion
+#include <stdio.h>
+
+// Recursive function to calculate the product of numbers
+int product(int num) {
+    if (num == 1) // Base case: when num is 1, return 1
+        return 1;
+    else
+        return num * product(num - 1); // Recursive call for the next number
+}
+
+int main() {
+    int result = product(12); // Calculate the product of first 12 natural numbers
+    printf("The product of the first 12 natural numbers is: %d\n", result);
+    return 0;
+}
