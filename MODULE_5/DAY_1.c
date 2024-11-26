@@ -66,38 +66,45 @@ int main() {
 
 /*
 #include <stdio.h>
-#include<string.h>
-int main(){
-    char str[]="Welcome to a saveetha engneering colledge";
-    char word[100][100],large[100],small[100];
-    int i=0,j=0,k,len;
-    for (k=0;str[k]!='\0';k++){
-        if(str[k]!=' '&& str[k]!='\0'){
-            word[i][j++] = str[k];
-        }
-        else{
-            word[i][j]='\0';
-            i++;
-            j=0;
-        }
-    }
-    len = i+1;
-    strcpy(small,word[0]);
-    strcpy(large,word[0]);
-    for(k=0;k<len;k++){
-        if(strlen(small)>strlen(word[k])){
-            strcpy(small,word[k]);
-    }
-        if(strlen(large)<strlen(word[k])){
-            strcpy(large,word[k]);
-    }
-    }
-    printf("Smallest word: %s\n", small);
-    printf("Largest word: %s\n", large);
-    printf("String: %s\n",str);
+#include <string.h>
 
+int main() {
+    char str[] = "Welcome to saveetha engineering college";
+    char words[100][100];  // Array to store words
+    int wordCount = 0;
+    char smallest[100], largest[100];
 
+    // Get the first token (word)
+    char *token = strtok(str, " ");
+
+    // Loop through the string and get all words
+    while (token != NULL) {
+        strcpy(words[wordCount], token);  // Copy the word into the array
+        wordCount++;
+        token = strtok(NULL, " ");  // Get the next word
+    }
+
+    // Initialize smallest and largest with the first word
+    strcpy(smallest, words[0]);
+    strcpy(largest, words[0]);
+
+    // Compare the words to find the smallest and largest
+    for (int i = 1; i < wordCount; i++) {
+        if (strlen(words[i]) < strlen(smallest)) {
+            strcpy(smallest, words[i]);
+        }
+        if (strlen(words[i]) > strlen(largest)) {
+            strcpy(largest, words[i]);
+        }
+    }
+
+    // Print the smallest and largest words
+    printf("Smallest word: %s\n", smallest);
+    printf("Largest word: %s\n", largest);
+
+    return 0;
 }
+
 */
 #include <stdio.h>
 int main(){
